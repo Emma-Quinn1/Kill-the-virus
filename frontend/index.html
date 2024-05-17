@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://fav.farm/😎" />
+    <link rel="stylesheet" href="/src/assets/scss/style.scss" />
+    <title>Kill the virus</title>
+
+  </head>
+
+  <body>
+    <!-- Starting Page -->
+    <div id="startPage">
+      <div id="start">
+        <h1 class="startHeader">Kill The Virus?...</h1>
+        <form id="playerNameForm">
+          <div class="row g-3">
+            <div class="col-7">
+              <input
+                type="text"
+                id="playerName"
+                class="form-control"
+                required
+                placeholder="Ditt namn"
+              />
+            </div>
+            <div>
+              <button
+                type="submit"
+                id="submitPlayerNameBtn"
+                class="btn startBtn"
+              >
+                Start
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Lobby page-->
+    <div id="lobby" class="hide">
+      <div id="lobbyBanner">
+        <h2>Spel Lobby</h2>
+      </div>
+      <div id="lobbyHighscore">
+        <div id="lobbyHighscoreFastestTime">
+          <h3>Snabbast tid</h3>
+          <ul id="lobbyPageHighscore" class="ScoreBoard">
+      
+          </ul>
+        </div>
+        <div id="lobbyHighscoreLastGames">
+          <h3>Senaste spelen</h3>
+          <ul id="lobbyPageRecentGames" class="ScoreBoard">
+            
+          </ul>
+        </div>
+      </div>
+      <ul id="lobbyPlayers"></ul>
+    </div>
+    <!-- Game page -->
+    <div id="gamePage" class="hide">
+      <div class="gameview container-fluid mt-4 ms-1 d-flex">
+        <div id="game-board" class="border border-black rounded"></div>
+
+        <aside class="score-board col-md-3 ms-5 border border-black">
+          <h2
+            class="score-board text-center pt-3 pb-3 border border-black bg-success fw-bold"
+          >
+            Scoreboard
+          </h2>
+          <ul id="roundScore" class="text-center mt-3 mb-3"></ul>
+          <div>
+            <div class="nose"></div>
+          </div>
+          <div
+            class="tid col-md-10 mx-auto pb-2 mt-5 border border-black bg-success"
+          >
+            <h5
+              id="firstPlayerName"
+              class="text-center border-bottom border-black py-2"
+            >
+              Mitt namn
+            </h5>
+            <p id="playerTimeBox" class="timeBox fs-5 text-center fw-bold">
+              00:00:000
+            </p>
+          </div>
+
+          <div
+            class="tid col-md-10 mx-auto pb-2 mt-5 border border-black bg-success"
+          >
+            <h5
+              id="opponentPlayerName"
+              class="text-center border-bottom border-black py-2"
+            >
+              Motståndare
+            </h5>
+            <p id="otherPlayerTimeBox" class="timeBox fs-5 text-center fw-bold">
+              00:00:000
+            </p>
+          </div>
+          <div
+            class="tid col-md-10 mx-auto pb-2 mt-5 border border-black bg-success"
+          >
+            <h5 class="text-center border-bottom border-black py-2">
+              Tid för runda
+            </h5>
+            <p id="roundTimeCounter" class="timeBox fs-5 text-center fw-bold">
+              00:00:000
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!--Result page-->
+    <div id="resultPage" class="hide">
+      <div id="resultBanner">
+        <h1>Resultat</h1>
+      </div>
+      <div id="resultHighscore">
+        <div id="resultHighscoreFastestTime">
+          <h3>Snabbast tid</h3>
+          <ul id="resultPageHighscore" class="ScoreBoard">
+          </ul>
+        </div>
+        <div id="resultHighscoreLastGames">
+          <h3>Senaste spelen</h3>
+          <ul id="resultPageRecentGames" class="ScoreBoard">
+            
+          </ul>
+        </div>
+      </div>
+      <div id="resultPlayers">
+        <div id="resultPlayerOne">
+          <h5 id="playerOneResultHeader">Spelare 1</h5>
+          <div id="playerResultsPlayerOne">
+            <div id="bestTimePlayerOne">
+              <h6>Genomsnittlig tid:</h6>
+              <p id="reactionTimePlayerOne">här visas tiden?</p>
+            </div>
+            <div id="wonRoundsPlayerOne">
+              <h6>Vunna rundor:</h6>
+              <p id="roundsWonPlayerOne">Här visas antalet vunna rundor:</p>
+            </div>
+          </div>
+        </div>
+        <div id="resultPlayerTwo">
+          <h5 id="playerTwoResultHeader">Spelare 2</h5>
+          <div id="playerResultsPlayerTwo">
+            <div id="bestTimePlayerTwo">
+              <h6>Genomsnittlig tid:</h6>
+              <p id="reactionTimePlayerTwo">här visas tiden?</p>
+            </div>
+            <div id="wonRoundsPlayerTwo">
+              <h6>Vunna rundor:</h6>
+              <p id="roundsWonPlayerTwo">Här visas antalet vunna rundor:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="resultBtn">
+        <div id="resultPlayAgainBtn">
+          <button
+            type="button"
+            id="playAgainBtn"
+            class="btn btn-primary btn-lg"
+          >
+            Spela igen
+          </button>
+        </div>
+        <div id="quitGameAndRestartBtn">
+          <button type="button" class="btn btn-primary btn-lg">
+            Avsluta spel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

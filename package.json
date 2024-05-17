@@ -1,0 +1,14 @@
+{
+  "name": "fed23-fed23-api-grupp-7",
+  "version": "1.0.0",
+  "description": "fed23 API GRUPP 7",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd frontend && npm install --include=dev && cd ../backend && npm install --include=dev",
+    "build": "cd frontend && npm run build && cd ../backend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

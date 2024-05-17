@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Room {
+  id                String              @id @default(auto()) @map("_id") @db.ObjectId
+  name              String
+  players           Player[]
+  playerCount       Int                 @default(0)
+  rounds            Round[]
+  playerClickedTime PlayerClickedTime[]
+  finishedGame      Boolean             @default(false)
+  createdAt         DateTime            @default(now())
+}
+
+model Player {
+  id                String              @id @map("_id")
+  playerName        String
+  wonRounds         Int                 @default(0)
+  room              Room                @relation(fields: [roomId], references: [id])
+  roomId            String              @db.ObjectId
+  playerClickedTime PlayerClickedTime[]
+  flicker           Boolean             @default(false)
+  reactionTime      Int                 @default(0)
+  isTie             Boolean             @default(false)
+  // isConnected       Boolean              @default(true)
+}
+
+model Round {
+  id                String              @id @default(auto()) @map("_id") @db.ObjectId
+  room              Room                @relation(fields: [roomId], references: [id])
+  roomId            String              @db.ObjectId
+  playerClickedTime PlayerClickedTime[]
+  roundNumber       Int
+  delay             Int
+  targetCell        Int
+}
+
+model PlayerClickedTime {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  player     Player @relation(fields: [playerId], references: [id])
+  playerId   String
+  round      Round  @relation(fields: [roundId], references: [id])
+  roundId    String @db.ObjectId
+  playerTime Int    @default(0)
+  room       Room   @relation(fields: [roomId], references: [id])
+  roomId     String @db.ObjectId
+}
